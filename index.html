@@ -37,6 +37,16 @@ map.on('load', function () {
             'fill-opacity': 0.8
         }
     });
+    
+        // When a click event occurs on a feature in the states layer, open a popup at the
+    // location of the click, with description HTML from its properties.
+    map.on('click', 'maine', function (e) {
+        new mapboxgl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(e.features[0].properties.name)
+            .addTo(map);
+    });
+
 });
 </script>
 
